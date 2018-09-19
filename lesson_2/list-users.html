@@ -32,12 +32,14 @@
 <script>
   var tableListUsers = {
     name: 'tableListUsers',
+
     props: {
       users: {
         type: Array,
         required: true
       }
     },
+
     template: `<table class="table">
       <thead class="thead-light">
         <th>Фамилия</th><th>Имя</th><th>Телефон</th><th>Адрес электронной почты</th>
@@ -50,27 +52,33 @@
       </tr>
     </table>`
   }
+
   var app = new Vue({
     el: '#app',
+
     components: {
       tableListUsers: tableListUsers
     },
+
     data: function () {
       return {
         users: [],
         loading: true,
       }
     },
+
     computed: {
       countUsers: function () {
         return this.users.length;
       }
     },
+
     watch: {
       users: function (value) {
         console.log('Данные получены:', value);
       }
     },
+
     mounted() {
       var self = this;
       axios.get('http://localhost:3000/users')

@@ -10,7 +10,6 @@
     crossorigin="anonymous">
 </head>
 
-
 <body>
   <div id="app">
     <div class="container">
@@ -33,12 +32,14 @@
 <script>
   var formEditUser = {
     name: 'formEditUser',
+
     props: {
       user: {
         type: Object,
         required: true
       }
     },
+
     template: `
     <form>
       <div class='form-row'>
@@ -66,14 +67,15 @@
         </div>
       </div>
       <button type='submit' class='btn btn-primary'>Отправить</button>
-    </form>
-    `
+    </form>`
   }
   var app = new Vue({
     el: '#app',
+
     components: {
       formEditUser: formEditUser
     },
+
     data: function () {
       return {
         user: {
@@ -88,6 +90,7 @@
         loading: true,
       }
     },
+
     mounted() {
       var self = this;
 
@@ -99,7 +102,6 @@
       );
 
       var _id = vars['_id'];
-
       axios.get(' http://localhost:3000/users?_id=' + _id)
         .then(function (response) {
           if (response.data[0]) {
