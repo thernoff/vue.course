@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Редактирование пользователя</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+</head>
+
+
+<body>
+  <div id="app">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="text-center">Редактирование пользователя</h2>
+          <section v-if="!loading">
+            <form-edit-user v-bind:user="user"></form-edit-user>
+          </section>
+          <section v-else>
+            <p class="text-center">Loading data...</p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+  var formEditUser = {
+    name: 'formEditUser',
+    props: {
+      user: {
+        type: Object,
+        required: true
+      }
+    },
+    template: `
+    <form>
+      <div class='form-row'>
+        <div class='form-group col-md-6'>
+          <label>Имя
+            <input type='text' class='form-control' placeholder='Имя' v-bind:value="user.name.first">
+          </label>
+        </div>
+        <div class='form-group col-md-6'>
+          <label>Фамилия
+            <input type='text' class='form-control' placeholder='Фамилия' v-bind:value="user.name.last">
+          </label>
+        </div>
+      </div>
+      <div class='form-row'>
+        <div class='form-group col-md-6'>
+          <label>Email
+            <input type='email' class='form-control' placeholder='Email' v-bind:value="user.email">
+          </label>
+        </div>
+        <div class='form-group col-md-6'>
+          <label>Телефон
+            <input type='phone' class='form-control' placeholder='Телефон' v-bind:value="user.phone">
+          </label>
+        </div>
+      </div>
+      <button type='submit' class='btn btn-primary'>Отправить</button>
+    </form>
+    `
+  }
+  var app = new Vue({
+    el: '#app',
+    components: {
+      formEditUser: formEditUser
+    },
+    data: function () {
+      return {
+        user: {
+          name: {
+            first: '',
+            last: '',
+          },
+          phone: '',
+          email: '',
+        },
+
+        loading: true,
+      }
+    },
+    mounted() {
+      var self = this;
+
+      var vars = {}; // объект для хранения query параметров
+      window.location.href.replace(location.hash, '').replace(/[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
+        function (m, key, value) {
+          vars[key] = value !== undefined ? value : '';
+        }
+      );
+
+      var _id = vars['_id'];
+
+      axios.get(' http://localhost:3000/users?_id=' + _id)
+        .then(function (response) {
+          if (response.data[0]) {
+            self.user = response.data[0];
+            self.loading = false;
+          }
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+  })
+</script>
+
+</html>
