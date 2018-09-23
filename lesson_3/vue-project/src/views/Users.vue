@@ -29,15 +29,18 @@ export default {
     users: []
   }),
   mounted() {
-      this.loadUsers()
+    this.loadUsers()
   },
   methods: {
-      loadUsers() {
-          axios.get('http://localhost:3004/users')
-            .then(response => response.data)
-            .then(users => { this.users = users })
-            .catch(error => console.error(error))
-      }
+    loadUsers() {
+      axios
+        .get('http://localhost:3004/users')
+        .then(response => response.data)
+        .then(users => {
+          this.users = users
+        })
+        .catch(error => console.error(error))
+    }
   }
 }
 </script>

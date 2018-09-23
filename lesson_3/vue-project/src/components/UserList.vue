@@ -52,9 +52,9 @@ export default {
     }
   },
   computed: {
-      total() {
-        return this.users.length
-      }
+    total() {
+      return this.users.length
+    }
   }
 }
 </script>
