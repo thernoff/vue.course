@@ -53,7 +53,7 @@ export default {
   },
   computed: {
       total() {
-          return this.users.length
+        return this.users.length
       }
   }
 }
