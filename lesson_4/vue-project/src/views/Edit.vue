@@ -8,17 +8,17 @@
           class="alert alert-warning">
           Loading...
         </div>
-        <edit-user
+        <user-form
           v-else
           :user="user"
           @input="value => user = value"
         />
-        <!-- <button
+        <button
           type="button"
           class="btn btn-success"
           @click="saveUser">
             Save
-        </button> -->
+        </button>
       </div>
 
     </div>
@@ -27,36 +27,39 @@
 
 <script>
 import axios from 'axios'
-import EditUser from '@/components/EditUser.vue'
+import UserForm from '@/components/UserForm.vue'
 
 export default {
   name: 'EditUser',
   components: {
-    editUser: EditUser
+    userForm: UserForm
   },
   data: function() {
     return {
       user: null
     }
   },
+  computed: {
+    id() {
+      return this.$route.params.id
+    }
+  },
   mounted() {
     this.loadUser()
   },
   methods: {
+    saveUser() {
+      console.log(this.user)
+    },
     loadUser() {
-      const id = this.$route.params.id
       axios
-        .get('http://localhost:3004/users?_id=' + id)
+        .get('http://localhost:3004/users/' + this.id)
         .then(response => response.data)
         .then(data => {
-          console.log(data[0])
-          this.user = data[0]
+          this.user = data
         })
         .catch(error => console.error(error))
     }
   }
 }
 </script>
-
-<style>
-</style>

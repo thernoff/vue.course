@@ -3,7 +3,7 @@
     <div class="form-group">
       <label>Имя</label>
       <input
-        v-model="user.name.first"
+        v-model="user.firstName"
         type="text"
         class="form-control">
     </div>
@@ -11,7 +11,7 @@
     <div class="form-group">
       <label>Фамилия</label>
       <input
-        v-model="user.name.last"
+        v-model="user.lastName"
         type="text"
         class="form-control">
     </div>
@@ -63,6 +63,3 @@ export default {
   }
 }
 </script>
-
-<style>
-</style>

@@ -1,9 +1,13 @@
 <template>
   <div id="app">
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a
-        class="navbar-brand"
-        href="#">Пользователи</a>
+      <router-link
+        tag="a"
+        to="/"
+        exact
+        class="navbar-brand">
+        Пользователи
+      </router-link>
       <button
         class="navbar-toggler"
         type="button"

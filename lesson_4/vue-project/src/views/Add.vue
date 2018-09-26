@@ -3,16 +3,16 @@
     <div class="row">
       <div class="col-md-12">
         <h2 class="text-center">Добавление пользователя</h2>
-        <add-user
+        <user-form
           :user="user"
           @input="value => user = value"
         />
-        <!-- <button
+        <button
           type="button"
           class="btn btn-success"
           @click="saveUser">
             Save
-        </button> -->
+        </button>
       </div>
 
     </div>
@@ -20,31 +20,34 @@
 </template>
 
 <script>
-import AddUser from '@/components/AddUser.vue'
+import UserForm from '@/components/UserForm.vue'
 
 export default {
   name: 'AddUser',
   components: {
-    addUser: AddUser
+    userForm: UserForm
   },
   data() {
     return {
       user: {
         isActive: false,
-        balance: '$0',
-        name: {
-          first: '',
-          last: ''
-        },
+        balance: '',
+        picture: '',
+        age: 0,
+        accessLevel: '',
+        firstName: '',
+        lastName: '',
         company: '',
         email: '',
         phone: '',
-        address: ''
+        address: '',
+        about: '',
+        registered: ''
       }
     }
+  },
+  methods: {
+    saveUser() {}
   }
 }
 </script>
-
-<style>
-</style>

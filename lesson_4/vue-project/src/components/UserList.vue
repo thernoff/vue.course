@@ -18,12 +18,12 @@
           v-for="item in users"
           :key="item.id">
           <td>
-            <router-link :to="'/edit/' + item._id">
-              # {{ item._id }}
+            <router-link :to="'/edit/' + item.id">
+              # {{ item.id }}
             </router-link>
           </td>
-          <td>{{ item.name.first }}</td>
-          <td>{{ item.name.last }}</td>
+          <td>{{ item.firstName }}</td>
+          <td>{{ item.lastName }}</td>
           <td>{{ item.isActive }}</td>
           <td>{{ item.balance }}</td>
           <td>{{ item.email }}</td>
@@ -58,6 +58,3 @@ export default {
   }
 }
 </script>
-
-<style>
-</style>
