@@ -1,16 +1,18 @@
 <template>
-<div>
-<label>Выберите количество пользователей</label>
-  <select class="form-control" v-model="selected">
-    <option
-      v-for="n in count"
-      v-bind:key="n"
-      v-bind:value="n * step"
-    >
-      {{ n * step }}
-    </option>
-  </select>
-</div>
+  <div>
+    <label>Выберите количество пользователей</label>
+    <select
+      v-model="selected"
+      class="form-control">
+      <option
+        v-for="n in count"
+        :key="n"
+        :value="n * step"
+      >
+        {{ n * step }}
+      </option>
+    </select>
+  </div>
 </template>
 <script>
 export default {
@@ -34,12 +36,6 @@ export default {
     selected() {
       this.$emit('changeCountUsers', this.selected)
     }
-  },
-  methods: {
-    test() {
-      console.log(this.selected)
-    }
   }
 }
 </script>
-

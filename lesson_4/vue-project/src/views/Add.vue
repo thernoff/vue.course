@@ -11,7 +11,7 @@
           type="button"
           class="btn btn-success"
           @click="addUser">
-            Add
+          Add
         </button>
       </div>
 
@@ -51,8 +51,7 @@ export default {
     addUser() {
       axios
         .post('http://localhost:3004/users', this.user)
-        .then(response => response.data)
-        .then(data => {
+        .then(() => {
           this.$router.push('/users')
         })
         .catch(error => console.error(error))

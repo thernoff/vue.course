@@ -59,13 +59,15 @@
     <div class="form-group">
       <div class="form-check">
         <input
+          id="defaultCheck1"
+          v-model="user.isActive"
           class="form-check-input"
           type="checkbox"
           value=""
-          id="defaultCheck1"
-          v-model="user.isActive"
         >
-        <label class="form-check-label" for="defaultCheck1">
+        <label 
+          class="form-check-label" 
+          for="defaultCheck1">
           Активен
         </label>
       </div>

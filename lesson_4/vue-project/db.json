@@ -407,7 +407,7 @@
       "picture": "http://placehold.it/128x128",
       "age": 20,
       "accessLevel": "guest",
-      "firstName": "Pace",
+      "firstName": "Pace1",
       "lastName": "Houston",
       "company": "DIGIPRINT",
       "email": "pace.houston@digiprint.biz",
@@ -431,38 +431,6 @@
       "address": "501 Fuller Place, Bancroft, New York, 9621",
       "about": "Sunt tempor sit aliqua irure ex aute pariatur occaecat qui fugiat in duis velit. Officia magna labore ea incididunt labore velit officia. Ullamco labore mollit eiusmod excepteur velit labore ullamco minim id ex eu anim.",
       "registered": "28.02.2017"
-    },
-    {
-      "id": 39,
-      "isActive": false,
-      "balance": "$2,712.87",
-      "picture": "http://placehold.it/128x128",
-      "age": 21,
-      "accessLevel": "user",
-      "firstName": "Nita",
-      "lastName": "Burks",
-      "company": "EMOLTRA",
-      "email": "nita.burks@emoltra.org",
-      "phone": "+7 (844) 457-3364",
-      "address": "491 Jamaica Avenue, Como, Connecticut, 2266",
-      "about": "Incididunt officia esse cupidatat sunt irure velit ullamco proident tempor tempor ad Lorem duis Lorem. Proident in qui eiusmod eiusmod fugiat ut incididunt mollit tempor commodo. Eu eu irure veniam nostrud ut laboris sunt pariatur mollit occaecat ex voluptate cupidatat velit.",
-      "registered": "23.12.2014"
-    },
-    {
-      "isActive": false,
-      "balance": "",
-      "picture": "",
-      "age": 0,
-      "accessLevel": "",
-      "firstName": "aaa",
-      "lastName": "sss",
-      "company": "",
-      "email": "",
-      "phone": "",
-      "address": "",
-      "about": "",
-      "registered": "",
-      "id": 40
     }
   ]
 }

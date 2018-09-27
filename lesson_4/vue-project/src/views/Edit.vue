@@ -17,7 +17,7 @@
           type="button"
           class="btn btn-success"
           @click="saveUser">
-            Save
+          Save
         </button>
       </div>
 
@@ -51,10 +51,7 @@ export default {
     saveUser() {
       axios
         .put('http://localhost:3004/users/' + this.id, this.user)
-        .then(response => response.data)
-        .then(data => {
-          this.$router.push('/users')
-        })
+        .then(() => this.$router.push('/users'))
         .catch(error => console.error(error))
     },
     loadUser() {
