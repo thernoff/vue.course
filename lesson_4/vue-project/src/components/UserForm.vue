@@ -17,6 +17,14 @@
     </div>
 
     <div class="form-group">
+      <label>Email</label>
+      <input
+        v-model="user.email"
+        type="email"
+        class="form-control">
+    </div>
+
+    <div class="form-group">
       <label>Баланс</label>
       <input
         v-model="user.balance"
@@ -28,7 +36,7 @@
       <label>Телефон</label>
       <input
         v-model="user.phone"
-        type="text"
+        type="phone"
         class="form-control">
     </div>
 
@@ -36,7 +44,7 @@
       <label>Адрес</label>
       <input
         v-model="user.address"
-        type="text"
+        type="address"
         class="form-control">
     </div>
 
@@ -47,6 +55,21 @@
         type="text"
         class="form-control">
     </div>
+
+    <div class="form-group">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
+          id="defaultCheck1"
+          v-model="user.isActive"
+        >
+        <label class="form-check-label" for="defaultCheck1">
+          Активен
+        </label>
+      </div>
+    </div>
   </div>
 
 
@@ -54,7 +77,7 @@
 
 <script>
 export default {
-  name: 'EditUser',
+  name: 'UserForm',
   props: {
     user: {
       type: Object,

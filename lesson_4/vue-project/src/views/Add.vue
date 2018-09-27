@@ -10,8 +10,8 @@
         <button
           type="button"
           class="btn btn-success"
-          @click="saveUser">
-            Save
+          @click="addUser">
+            Add
         </button>
       </div>
 
@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import UserForm from '@/components/UserForm.vue'
 
 export default {
@@ -47,7 +48,15 @@ export default {
     }
   },
   methods: {
-    saveUser() {}
+    addUser() {
+      axios
+        .post('http://localhost:3004/users', this.user)
+        .then(response => response.data)
+        .then(data => {
+          this.$router.push('/users')
+        })
+        .catch(error => console.error(error))
+    }
   }
 }
 </script>

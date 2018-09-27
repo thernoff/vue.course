@@ -49,7 +49,13 @@ export default {
   },
   methods: {
     saveUser() {
-      console.log(this.user)
+      axios
+        .put('http://localhost:3004/users/' + this.id, this.user)
+        .then(response => response.data)
+        .then(data => {
+          this.$router.push('/users')
+        })
+        .catch(error => console.error(error))
     },
     loadUser() {
       axios

@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h2 class="text-center">Список пользователей</h2>
+        <h2 class="text-center">Список пользователей (общее количество {{users.length}})</h2>
         <div
           v-if="!users.length"
           class="alert alert-warning">
