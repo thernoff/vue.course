@@ -1,7 +1,17 @@
 <template>
   <div class="flatpicker">
-    <input class="form-control flatpicker-input" type="text" ref="flatpicker" v-bind:value="value">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text">
+          <button class="btn btn-calendar" v-on:click="open">
+            <i class="far fa-calendar-alt"></i>
+          </button>
+        </div>
+      </div>
+      <input class="form-control flatpicker-input" type="text" ref="flatpicker" v-bind:value="value">
+    </div>
   </div>
+
 </template>
 <script>
 import flatpickr from 'flatpickr'
@@ -37,6 +47,10 @@ export default {
           this.$emit('input', dateStr)
         }
       })
+    },
+
+    open() {
+      this.flatpicker.open()
     }
   },
   mounted() {
@@ -47,5 +61,13 @@ export default {
 <style scoped>
 .flatpicker-input {
   background-color: #fff;
+}
+
+.input-group-text {
+  padding: 0;
+}
+
+.btn-calendar {
+  border-width: 0px;
 }
 </style>
