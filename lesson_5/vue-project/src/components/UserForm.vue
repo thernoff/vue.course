@@ -62,6 +62,11 @@
     </div>
 
     <div class="form-group">
+      <label>О пользователе</label>
+      <vue-editor v-model="localUser.about"></vue-editor>
+    </div>
+
+    <div class="form-group">
       <div class="form-check">
         <input
           id="defaultCheck1"
@@ -83,6 +88,7 @@
 </template>
 
 <script>
+import { VueEditor } from 'vue2-editor'
 export default {
   name: 'UserForm',
   props: {
@@ -97,7 +103,8 @@ export default {
     }
   },
   components: {
-    Flatpicker: () => import('@/components/Flatpicker.vue')
+    Flatpicker: () => import('@/components/Flatpicker.vue'),
+    VueEditor
   },
   watch: {
     localUser: {
@@ -109,7 +116,6 @@ export default {
   },
   created() {
     this.localUser = Object.assign({}, this.value)
-    console.log('this.localUser', this.localUser)
   }
 }
 </script>

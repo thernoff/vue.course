@@ -7,14 +7,14 @@
       "picture": "http://placehold.it/128x128",
       "age": 39,
       "accessLevel": "admin",
-      "firstName": "Aurelia123",
+      "firstName": "Aurelia",
       "lastName": "Fields",
       "company": "KAGGLE",
       "email": "aurelia.fields@kaggle.name",
       "phone": "+7 (822) 454-3094",
       "address": "718 Clifton Place, Wheaton, Idaho, 9242",
-      "about": "Ex in laboris voluptate id cupidatat id. Mollit non ipsum id qui ex dolore eiusmod. Aute mollit est aliqua velit veniam. Duis est irure aute ex veniam quis. Aliquip cillum est minim magna. Commodo id elit incididunt voluptate elit ea incididunt nisi. Consequat consequat ut officia dolor et Lorem nulla deserunt fugiat tempor aute eu dolore.",
-      "registered": "30.12.2016"
+      "about": "<p><strong>Информация о пользователе</strong></p>",
+      "registered": "25.01.2018"
     },
     {
       "id": 11,
@@ -30,7 +30,7 @@
       "phone": "+7 (874) 421-3845",
       "address": "491 Powell Street, Enlow, Washington, 6058",
       "about": "Aliqua ea mollit fugiat laboris in. Ipsum laborum pariatur sit in amet veniam labore est nulla do consequat cillum aliqua. Irure cupidatat nulla excepteur ex voluptate exercitation qui in sit laboris in. Cillum nostrud est aliqua cupidatat officia veniam duis quis incididunt sint excepteur culpa exercitation proident. Consectetur voluptate cupidatat dolor non pariatur ex mollit veniam eiusmod officia enim voluptate. Nostrud amet enim minim irure non velit ex nisi ipsum elit qui enim nisi sit. Elit labore non pariatur velit aliquip velit aliquip et ipsum ea magna enim.",
-      "registered": "18.10.2018"
+      "registered": "15.10.2018"
     },
     {
       "id": 12,
@@ -77,7 +77,7 @@
       "email": "lilian.morales@quizka.org",
       "phone": "+7 (821) 491-3138",
       "address": "898 Beverley Road, Takilma, Maine, 6151",
-      "about": "Consequat ipsum anim nulla labore tempor velit. Do fugiat minim veniam ea in irure velit ipsum voluptate esse excepteur culpa. Mollit aliquip ut cillum voluptate qui dolore est qui velit reprehenderit ad. Ea consequat ea esse dolore ea quis.",
+      "about": "<p>Consequat ipsum anim nulla labore tempor velit. Do fugiat minim veniam ea in irure velit ipsum voluptate esse excepteur culpa. Mollit aliquip ut cillum voluptate qui dolore est qui velit reprehenderit ad.</p>",
       "registered": "14.08.2018"
     },
     {
