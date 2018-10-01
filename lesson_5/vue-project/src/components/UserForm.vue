@@ -57,6 +57,11 @@
     </div>
 
     <div class="form-group">
+      <label>Дата регистрации</label>
+      <flatpicker v-model="localUser.registered"></flatpicker>
+    </div>
+
+    <div class="form-group">
       <div class="form-check">
         <input
           id="defaultCheck1"
@@ -90,6 +95,9 @@ export default {
     return {
       localUser: null
     }
+  },
+  components: {
+    Flatpicker: () => import('@/components/Flatpicker.vue')
   },
   watch: {
     localUser: {

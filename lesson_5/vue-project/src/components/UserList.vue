@@ -104,8 +104,8 @@ export default {
     removeUser(id) {
       axiosInstance
         .delete('users/' + id)
-        .then(() => {
-          this.$router.push('/users')
+        .then(response => {
+          //this.$router.push('/users')
         })
         .catch(error => console.error(error))
     }

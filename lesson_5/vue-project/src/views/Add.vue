@@ -4,8 +4,7 @@
       <div class="col-md-12">
         <h2 class="text-center">Добавление пользователя</h2>
         <user-form
-          :user="user"
-          @input="value => user = value"
+          v-model="user"
         />
         <button
           type="button"
@@ -60,8 +59,10 @@ export default {
     addUser() {
       axiosInstance
         .post('users', this.user)
-        .then(() => {
-          this.$router.push('/users')
+        .then(response => response.data)
+        .then(data => {
+          //this.$router.push('/users')
+          this.$router.push('/edit/' + data.id)
         })
         .catch(error => console.error(error))
     }
