@@ -10,17 +10,6 @@
           <span class="sr-only">Previous</span>
         </a>
       </li>
-
-      <!-- <router-link
-        v-for="page in countPages"
-        :key="page"
-        :to="'/users?page=' + page"
-        tag="li"
-        class="page-item"
-        exact
-      >
-        <a class="page-link">{{ page }}</a>
-      </router-link> -->
       <li
         v-for="page in countPages"
         v-bind:key="page"
@@ -78,7 +67,6 @@ export default {
   },
   methods: {
     changePage(page) {
-      console.log('page', page)
       this.$emit('input', page)
     }
   }

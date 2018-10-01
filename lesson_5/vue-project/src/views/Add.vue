@@ -61,7 +61,6 @@ export default {
         .post('users', this.user)
         .then(response => response.data)
         .then(data => {
-          //this.$router.push('/users')
           this.$router.push('/edit/' + data.id)
         })
         .catch(error => console.error(error))

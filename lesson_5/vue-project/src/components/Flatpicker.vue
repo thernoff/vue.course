@@ -11,8 +11,8 @@
       <input class="form-control flatpicker-input" type="text" ref="flatpicker" v-bind:value="value">
     </div>
   </div>
-
 </template>
+
 <script>
 import flatpickr from 'flatpickr'
 import 'flatpickr/dist/flatpickr.css'
@@ -30,11 +30,11 @@ export default {
   },
   watch: {
     value() {
-      this.updateDatepicker()
+      this.updateFlatpicker()
     }
   },
   methods: {
-    updateDatepicker() {
+    updateFlatpicker() {
       if (this.flatpicker) {
         this.flatpicker.setDate(this.value)
       }
@@ -58,6 +58,7 @@ export default {
   }
 }
 </script>
+
 <style scoped>
 .flatpicker-input {
   background-color: #fff;
