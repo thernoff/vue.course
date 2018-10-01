@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import { axiosInstance } from '@/axios-instance.js'
 import UserForm from '@/components/UserForm.vue'
 
 export default {
@@ -49,8 +49,8 @@ export default {
   },
   methods: {
     addUser() {
-      axios
-        .post('http://localhost:3004/users', this.user)
+      axiosInstance
+        .post('users', this.user)
         .then(() => {
           this.$router.push('/users')
         })

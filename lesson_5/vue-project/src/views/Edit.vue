@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import { axiosInstance } from '@/axios-instance.js'
 import UserForm from '@/components/UserForm.vue'
 
 export default {
@@ -49,14 +49,15 @@ export default {
   },
   methods: {
     saveUser() {
-      axios
-        .put('http://localhost:3004/users/' + this.id, this.user)
+      axiosInstance
+        .put('users/' + this.id, this.user)
         .then(() => this.$router.push('/users'))
         .catch(error => console.error(error))
     },
+
     loadUser() {
-      axios
-        .get('http://localhost:3004/users/' + this.id)
+      axiosInstance
+        .get('users/' + this.id)
         .then(response => response.data)
         .then(data => {
           this.user = data

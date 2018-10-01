@@ -61,7 +61,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import { axiosInstance } from '@/axios-instance.js'
 import Pagination from '@/components/Pagination.vue'
 import SelectCountUsers from '@/components/SelectCountUsers.vue'
 
@@ -98,8 +98,8 @@ export default {
   },
   methods: {
     removeUser(id) {
-      axios
-        .delete('http://localhost:3004/users/' + id)
+      axiosInstance
+        .delete('users/' + id)
         .then(() => {
           this.$router.push('/users')
         })

@@ -2,9 +2,9 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h2 class="text-center">Список пользователей (общее количество {{ users.length }})</h2>
+        <h2 class="text-center">Список пользователей (общее количество {{ countUsers }})</h2>
         <div
-          v-if="!users.length"
+          v-if="!countUsers"
           class="alert alert-warning">
           Loading...
         </div>
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import { axiosInstance } from '@/axios-instance.js'
 import UserList from '@/components/UserList.vue'
 
 export default {
@@ -28,13 +28,18 @@ export default {
   data: () => ({
     users: []
   }),
+  computed: {
+    countUsers() {
+      return this.users.length
+    }
+  },
   mounted() {
     this.loadUsers()
   },
   methods: {
     loadUsers() {
-      axios
-        .get('http://localhost:3004/users')
+      axiosInstance
+        .get('users')
         .then(response => response.data)
         .then(users => {
           this.users = users
