@@ -62,14 +62,12 @@
 
 <script>
 import { axiosInstance } from '@/axios-instance.js'
-import Pagination from '@/components/Pagination.vue'
-import SelectCountUsers from '@/components/SelectCountUsers.vue'
 
 export default {
   name: 'UserList',
   components: {
-    Pagination,
-    SelectCountUsers
+    Pagination: () => import('@/components/Pagination.vue'),
+    SelectCountUsers: () => import('@/components/SelectCountUsers.vue')
   },
   props: {
     users: {

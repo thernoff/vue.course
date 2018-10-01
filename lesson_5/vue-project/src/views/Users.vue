@@ -18,12 +18,11 @@
 
 <script>
 import { axiosInstance } from '@/axios-instance.js'
-import UserList from '@/components/UserList.vue'
 
 export default {
   name: 'UsersList',
   components: {
-    UserList
+    UserList: () => import('@/components/UserList.vue')
   },
   data: () => ({
     users: []

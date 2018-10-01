@@ -27,12 +27,11 @@
 
 <script>
 import { axiosInstance } from '@/axios-instance.js'
-import UserForm from '@/components/UserForm.vue'
 
 export default {
   name: 'AddUser',
   components: {
-    userForm: UserForm
+    userForm: () => import('@/components/UserForm.vue')
   },
   data() {
     return {

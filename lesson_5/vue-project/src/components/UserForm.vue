@@ -94,13 +94,14 @@ export default {
   watch: {
     localUser: {
       deep: true,
-      hanler() {
+      handler() {
         this.$emit('input', this.localUser)
       }
     }
   },
   created() {
     this.localUser = Object.assign({}, this.user)
+    console.log('this.localUser', this.localUser)
   }
 }
 </script>
