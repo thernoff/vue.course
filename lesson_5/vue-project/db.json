@@ -7,13 +7,13 @@
       "picture": "http://placehold.it/128x128",
       "age": 39,
       "accessLevel": "admin",
-      "firstName": "Aurelia",
+      "firstName": "Aurelia111",
       "lastName": "Fields",
       "company": "KAGGLE",
       "email": "aurelia.fields@kaggle.name",
       "phone": "+7 (822) 454-3094",
       "address": "718 Clifton Place, Wheaton, Idaho, 9242",
-      "about": "<p><strong>Информация о пользователе</strong></p>",
+      "about": "<p>Информация о пользователе</p>",
       "registered": "25.01.2018"
     },
     {
@@ -431,38 +431,6 @@
       "address": "501 Fuller Place, Bancroft, New York, 9621",
       "about": "Sunt tempor sit aliqua irure ex aute pariatur occaecat qui fugiat in duis velit. Officia magna labore ea incididunt labore velit officia. Ullamco labore mollit eiusmod excepteur velit labore ullamco minim id ex eu anim.",
       "registered": "28.02.2017"
-    },
-    {
-      "isActive": false,
-      "balance": "111",
-      "picture": "",
-      "age": 0,
-      "accessLevel": "",
-      "firstName": "test",
-      "lastName": "Test",
-      "company": "",
-      "email": "t@t.com",
-      "phone": "",
-      "address": "",
-      "about": "",
-      "registered": "",
-      "id": 39
-    },
-    {
-      "isActive": false,
-      "balance": "",
-      "picture": "",
-      "age": 0,
-      "accessLevel": "",
-      "firstName": "qqq",
-      "lastName": "eee",
-      "company": "",
-      "email": "",
-      "phone": "",
-      "address": "",
-      "about": "",
-      "registered": "",
-      "id": 40
     }
   ]
 }

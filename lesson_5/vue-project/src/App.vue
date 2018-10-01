@@ -41,6 +41,12 @@
             class="nav-item">
             <a class="nav-link">Добавить пользователя</a>
           </router-link>
+          <router-link
+            tag="li"
+            to="/phone"
+            class="nav-item">
+            <a class="nav-link">Телефонный справочник</a>
+          </router-link>
         </ul>
       </div>
     </nav>

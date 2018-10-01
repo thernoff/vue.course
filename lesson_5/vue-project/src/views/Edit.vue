@@ -26,6 +26,12 @@
         <button
           type="button"
           class="btn btn-danger"
+          @click="removeUser">
+          Delete
+        </button>
+        <button
+          type="button"
+          class="btn btn-warning"
           @click="cancel">
           Cancel
         </button>
@@ -65,6 +71,15 @@ export default {
       axiosInstance
         .put('users/' + this.id, this.user)
         .then(() => this.$router.push('/users'))
+        .catch(error => console.error(error))
+    },
+
+    removeUser(id) {
+      axiosInstance
+        .delete('users/' + this.user.id)
+        .then(response => {
+          this.$router.push('/users')
+        })
         .catch(error => console.error(error))
     },
 
