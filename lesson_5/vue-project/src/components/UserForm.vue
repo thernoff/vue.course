@@ -3,7 +3,7 @@
     <div class="form-group">
       <label>Имя</label>
       <input
-        v-model="localUser.firstName"
+        v-model="value.firstName"
         type="text"
         class="form-control">
     </div>
@@ -81,7 +81,7 @@
 export default {
   name: 'UserForm',
   props: {
-    user: {
+    value: {
       type: Object,
       required: true
     }
@@ -100,7 +100,7 @@ export default {
     }
   },
   created() {
-    this.localUser = Object.assign({}, this.user)
+    this.localUser = Object.assign({}, this.value)
     console.log('this.localUser', this.localUser)
   }
 }

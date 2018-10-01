@@ -8,15 +8,15 @@
           class="alert alert-warning">
           Loading...
         </div>
-        <user-form
+        <!-- <user-form
           v-else
           :user="user"
           @input="value => user = value"
-        />
-        <!-- <user-form
+        /> -->
+        <user-form
           v-else
           v-model="user"
-        /> -->
+        />
         <button
           type="button"
           class="btn btn-success"

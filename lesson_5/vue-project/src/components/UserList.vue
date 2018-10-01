@@ -1,8 +1,7 @@
 <template>
   <div>
     <select-count-users
-      v-model="countUsers"
-      v-on:changeCountUsers="changeCountUsers"
+      v-model.number="countUsersOnePage"
     />
     <table class="table table-hover">
       <thead>
@@ -48,14 +47,16 @@
       <tfoot>
         <tr>
           <th colspan="8">
-            Всего пользователей: {{ limitUsers.length }}
+            Всего пользователей: {{ countLimitUsers }}
           </th>
         </tr>
       </tfoot>
     </table>
     <pagination
+      v-model.number="currentPage"
       :total-users="total"
-      :limit="limit"/>
+      :countUsersOnePage="countUsersOnePage"
+    />
   </div>
 </template>
 
@@ -76,8 +77,8 @@ export default {
   },
   data() {
     return {
-      limit: 5,
-      countUsers: 5
+      countUsersOnePage: 5,
+      currentPage: 1
     }
   },
   computed: {
@@ -86,15 +87,17 @@ export default {
     },
     limitUsers() {
       return this.users.slice(
-        (this.start - 1) * this.limit,
-        (this.start - 1) * this.limit + +this.limit
+        (this.currentPage - 1) * this.countUsersOnePage,
+        (this.currentPage - 1) * this.countUsersOnePage + +this.countUsersOnePage
       )
     },
     countLimitUsers() {
       return this.limitUsers.length
-    },
-    start() {
-      return this.$route.query.page || 1
+    }
+  },
+  watch: {
+    countUsersOnePage() {
+      this.currentPage = 1
     }
   },
   methods: {
@@ -105,10 +108,6 @@ export default {
           this.$router.push('/users')
         })
         .catch(error => console.error(error))
-    },
-    changeCountUsers(limit) {
-      this.limit = limit
-      this.$router.push('/users')
     }
   }
 }

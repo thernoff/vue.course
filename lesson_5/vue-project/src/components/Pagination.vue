@@ -2,16 +2,16 @@
   <nav aria-label="Page navigation example">
     <ul class="pagination">
       <li class="page-item">
-        <a 
-          class="page-link" 
-          href="#" 
+        <a
+          class="page-link"
+          href="#"
           aria-label="Previous">
           <span aria-hidden="true">&laquo;</span>
           <span class="sr-only">Previous</span>
         </a>
       </li>
 
-      <router-link
+      <!-- <router-link
         v-for="page in countPages"
         :key="page"
         :to="'/users?page=' + page"
@@ -20,11 +20,24 @@
         exact
       >
         <a class="page-link">{{ page }}</a>
-      </router-link>
+      </router-link> -->
+      <li
+        v-for="page in countPages"
+        v-bind:key="page"
+        class="page-item"
+        v-bind:class="{active: page === currentPage}"
+      >
+        <a
+          class="page-link"
+          v-on:click.prevent="changePage(page)"
+        >
+          {{ page }}
+        </a>
+      </li>
       <li class="page-item">
-        <a 
-          class="page-link" 
-          href="#" 
+        <a
+          class="page-link"
+          href="#"
           aria-label="Next">
           <span aria-hidden="true">&raquo;</span>
           <span class="sr-only">Next</span>
@@ -35,8 +48,16 @@
 </template>
 <script>
 export default {
+  name: 'Pagination',
+  model: {
+    prop: 'currentPage'
+  },
   props: {
-    limit: {
+    currentPage: {
+      type: Number,
+      required: true
+    },
+    countUsersOnePage: {
       type: Number,
       default: 5
     },
@@ -47,7 +68,18 @@ export default {
   },
   computed: {
     countPages() {
-      return Math.ceil(this.totalUsers / this.limit)
+      return Math.ceil(this.totalUsers / this.countUsersOnePage)
+    }
+  },
+  watch: {
+    currentPage() {
+      console.log('currentPage', this.currentPage)
+    }
+  },
+  methods: {
+    changePage(page) {
+      console.log('page', page)
+      this.$emit('input', page)
     }
   }
 }

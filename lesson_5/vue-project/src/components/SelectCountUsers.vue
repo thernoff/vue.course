@@ -2,7 +2,7 @@
   <div>
     <label>Выберите количество пользователей</label>
     <select
-      v-bind:countUsers="countUsers"
+      v-bind:value="value"
       v-on:input="selectCountUsers($event.target.value)"
       class="form-control">
       <option
@@ -18,7 +18,7 @@
 <script>
 export default {
   props: {
-    countUsers: {
+    value: {
       type: Number,
       default: 5
     },
@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     selectCountUsers(value) {
-      this.$emit('changeCountUsers', value)
+      this.$emit('input', value)
     }
   }
 }
