@@ -1,9 +1,8 @@
 <template>
   <div>
     <select-count-users
-      :count="3"
-      :step="5"
-      @changeCountUsers="changeCountUsers($event)"
+      v-model="countUsers"
+      v-on:changeCountUsers="changeCountUsers"
     />
     <table class="table table-hover">
       <thead>
@@ -21,7 +20,7 @@
       </thead>
       <tbody>
         <tr
-          v-for="(item) in limitUsers"
+          v-for="item in limitUsers"
           :key="item.id">
           <td>
             <router-link :to="'/edit/' + item.id">
@@ -77,7 +76,8 @@ export default {
   },
   data() {
     return {
-      limit: 5
+      limit: 5,
+      countUsers: 5
     }
   },
   computed: {
@@ -89,6 +89,9 @@ export default {
         (this.start - 1) * this.limit,
         (this.start - 1) * this.limit + +this.limit
       )
+    },
+    countLimitUsers() {
+      return this.limitUsers.length
     },
     start() {
       return this.$route.query.page || 1

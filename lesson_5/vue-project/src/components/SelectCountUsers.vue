@@ -2,14 +2,15 @@
   <div>
     <label>Выберите количество пользователей</label>
     <select
-      v-model="selected"
+      v-bind:countUsers="countUsers"
+      v-on:input="selectCountUsers($event.target.value)"
       class="form-control">
       <option
-        v-for="n in count"
+        v-for="n in options"
         :key="n"
-        :value="n * step"
+        :value="n"
       >
-        {{ n * step }}
+        {{ n }}
       </option>
     </select>
   </div>
@@ -17,24 +18,18 @@
 <script>
 export default {
   props: {
-    count: {
-      type: Number,
-      default: 4
-    },
-    step: {
+    countUsers: {
       type: Number,
       default: 5
+    },
+    options: {
+      type: Array,
+      default: () => [5, 10, 15, 20]
     }
   },
-
-  data() {
-    return {
-      selected: this.step * 1
-    }
-  },
-  watch: {
-    selected() {
-      this.$emit('changeCountUsers', this.selected)
+  methods: {
+    selectCountUsers(value) {
+      this.$emit('changeCountUsers', value)
     }
   }
 }
