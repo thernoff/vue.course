@@ -13,6 +13,12 @@
           @click="addUser">
           Add
         </button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          @click="cancel">
+          Cancel
+        </button>
       </div>
 
     </div>
@@ -48,6 +54,10 @@ export default {
     }
   },
   methods: {
+    cancel() {
+      this.$router.push('/users')
+    },
+
     addUser() {
       axiosInstance
         .post('users', this.user)

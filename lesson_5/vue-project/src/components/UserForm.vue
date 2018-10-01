@@ -3,7 +3,7 @@
     <div class="form-group">
       <label>Имя</label>
       <input
-        v-model="user.firstName"
+        v-model="localUser.firstName"
         type="text"
         class="form-control">
     </div>
@@ -11,7 +11,7 @@
     <div class="form-group">
       <label>Фамилия</label>
       <input
-        v-model="user.lastName"
+        v-model="localUser.lastName"
         type="text"
         class="form-control">
     </div>
@@ -19,7 +19,7 @@
     <div class="form-group">
       <label>Email</label>
       <input
-        v-model="user.email"
+        v-model="localUser.email"
         type="email"
         class="form-control">
     </div>
@@ -27,7 +27,7 @@
     <div class="form-group">
       <label>Баланс</label>
       <input
-        v-model="user.balance"
+        v-model="localUser.balance"
         type="text"
         class="form-control">
     </div>
@@ -35,7 +35,7 @@
     <div class="form-group">
       <label>Телефон</label>
       <input
-        v-model="user.phone"
+        v-model="localUser.phone"
         type="phone"
         class="form-control">
     </div>
@@ -43,7 +43,7 @@
     <div class="form-group">
       <label>Адрес</label>
       <input
-        v-model="user.address"
+        v-model="localUser.address"
         type="address"
         class="form-control">
     </div>
@@ -51,7 +51,7 @@
     <div class="form-group">
       <label>Компания</label>
       <input
-        v-model="user.company"
+        v-model="localUser.company"
         type="text"
         class="form-control">
     </div>
@@ -60,13 +60,13 @@
       <div class="form-check">
         <input
           id="defaultCheck1"
-          v-model="user.isActive"
+          v-model="localUser.isActive"
           class="form-check-input"
           type="checkbox"
           value=""
         >
-        <label 
-          class="form-check-label" 
+        <label
+          class="form-check-label"
           for="defaultCheck1">
           Активен
         </label>
@@ -85,6 +85,22 @@ export default {
       type: Object,
       required: true
     }
+  },
+  data() {
+    return {
+      localUser: null
+    }
+  },
+  watch: {
+    localUser: {
+      deep: true,
+      hanler() {
+        this.$emit('input', this.localUser)
+      }
+    }
+  },
+  created() {
+    this.localUser = Object.assign({}, this.user)
   }
 }
 </script>

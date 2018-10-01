@@ -13,11 +13,21 @@
           :user="user"
           @input="value => user = value"
         />
+        <!-- <user-form
+          v-else
+          v-model="user"
+        /> -->
         <button
           type="button"
           class="btn btn-success"
           @click="saveUser">
           Save
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          @click="cancel">
+          Cancel
         </button>
       </div>
 
@@ -48,6 +58,10 @@ export default {
     this.loadUser()
   },
   methods: {
+    cancel() {
+      this.$router.push('/users')
+    },
+
     saveUser() {
       axiosInstance
         .put('users/' + this.id, this.user)
