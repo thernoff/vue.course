@@ -17,7 +17,9 @@
             <th>Фамилия</th>
             <th>Телефон</th>
           </tr>
-          <template slot="row" slot-scope="item">
+          <template 
+            slot="row" 
+            slot-scope="item">
             <td>{{ item.firstName }}</td>
             <td>{{ item.lastName }}</td>
             <td>{{ item.phone }}</td>

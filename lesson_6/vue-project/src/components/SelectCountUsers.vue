@@ -2,15 +2,15 @@
   <div>
     <label>Выберите количество пользователей</label>
     <select
-      v-bind:value="value"
-      v-on:input="selectCountUsers($event.target.value)"
-      class="form-control">
+      :value="value"
+      class="form-control"
+      @input="selectCountUsers($event.target.value)">
       <option
-        v-for="n in options"
-        :key="n"
-        :value="n"
+        v-for="count in options"
+        :key="count"
+        :value="count"
       >
-        {{ n }}
+        {{ count }}
       </option>
     </select>
   </div>
@@ -20,7 +20,7 @@ export default {
   props: {
     value: {
       type: Number,
-      default: 5
+      required: true
     },
     options: {
       type: Array,

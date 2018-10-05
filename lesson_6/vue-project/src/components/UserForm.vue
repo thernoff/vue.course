@@ -36,7 +36,7 @@
       <label>Телефон</label>
       <input
         v-model="localUser.phone"
-        type="phone"
+        type="tel"
         class="form-control">
     </div>
 
@@ -44,7 +44,7 @@
       <label>Адрес</label>
       <input
         v-model="localUser.address"
-        type="address"
+        type="text"
         class="form-control">
     </div>
 
@@ -58,12 +58,12 @@
 
     <div class="form-group">
       <label>Дата регистрации</label>
-      <flatpicker v-model="localUser.registered"></flatpicker>
+      <flatpicker v-model="localUser.registered"/>
     </div>
 
     <div class="form-group">
       <label>О пользователе</label>
-      <vue-editor v-model="localUser.about"></vue-editor>
+      <vue-editor v-model="localUser.about"/>
     </div>
 
     <div class="form-group">
@@ -91,6 +91,10 @@
 import { VueEditor } from 'vue2-editor'
 export default {
   name: 'UserForm',
+  components: {
+    Flatpicker: () => import('@/components/Flatpicker.vue'),
+    VueEditor
+  },
   props: {
     value: {
       type: Object,
@@ -101,10 +105,6 @@ export default {
     return {
       localUser: null
     }
-  },
-  components: {
-    Flatpicker: () => import('@/components/Flatpicker.vue'),
-    VueEditor
   },
   watch: {
     localUser: {

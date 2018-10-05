@@ -5,13 +5,15 @@
     />
     <table class="table table-hover">
       <thead>
-        <slot name="thead"></slot>
+        <slot name="thead"/>
       </thead>
       <tbody>
         <tr
           v-for="item in limitUsers"
           :key="item.id">
-          <slot name="row" v-bind="item"></slot>
+          <slot
+            v-bind="item"
+            name="row"/>
         </tr>
       </tbody>
       <tfoot>
@@ -25,14 +27,12 @@
     <pagination
       v-model.number="currentPage"
       :total-users="total"
-      :countUsersOnePage="countUsersOnePage"
+      :count-users-one-page="countUsersOnePage"
     />
   </div>
 </template>
 
 <script>
-import { axiosInstance } from '@/axios-instance.js'
-
 export default {
   name: 'UserList',
   components: {
@@ -58,7 +58,7 @@ export default {
     limitUsers() {
       return this.users.slice(
         (this.currentPage - 1) * this.countUsersOnePage,
-        (this.currentPage - 1) * this.countUsersOnePage + +this.countUsersOnePage
+        (this.currentPage - 1) * this.countUsersOnePage + this.countUsersOnePage
       )
     },
     countLimitUsers() {

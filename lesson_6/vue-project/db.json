@@ -7,7 +7,7 @@
       "picture": "http://placehold.it/128x128",
       "age": 39,
       "accessLevel": "admin",
-      "firstName": "Aurelia111",
+      "firstName": "Aurelia123",
       "lastName": "Fields",
       "company": "KAGGLE",
       "email": "aurelia.fields@kaggle.name",
@@ -431,6 +431,22 @@
       "address": "501 Fuller Place, Bancroft, New York, 9621",
       "about": "Sunt tempor sit aliqua irure ex aute pariatur occaecat qui fugiat in duis velit. Officia magna labore ea incididunt labore velit officia. Ullamco labore mollit eiusmod excepteur velit labore ullamco minim id ex eu anim.",
       "registered": "28.02.2017"
+    },
+    {
+      "isActive": false,
+      "balance": "1000",
+      "picture": "",
+      "age": 0,
+      "accessLevel": "",
+      "firstName": "Axel",
+      "lastName": "Nuke",
+      "company": "",
+      "email": "axt@test.local",
+      "phone": "",
+      "address": "",
+      "about": "<p>test</p>",
+      "registered": "09.10.2018",
+      "id": 39
     }
   ]
 }

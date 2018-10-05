@@ -58,10 +58,10 @@ export default {
 
     addUser() {
       axiosInstance
-        .post('users', this.user)
-        .then(response => response.data)
-        .then(data => {
-          this.$router.push('/edit/' + data.id)
+        .post('/users', this.user)
+        .then(response => {
+          const { id } = response.data
+          this.$router.push('/edit/' + id)
         })
         .catch(error => console.error(error))
     }

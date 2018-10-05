@@ -8,11 +8,6 @@
           class="alert alert-warning">
           Loading...
         </div>
-        <!-- <user-form
-          v-else
-          :user="user"
-          @input="value => user = value"
-        /> -->
         <user-form
           v-else
           v-model="user"
@@ -32,7 +27,7 @@
         <button
           type="button"
           class="btn btn-warning"
-          @click="cancel">
+          @click="returnToUsers">
           Cancel
         </button>
       </div>
@@ -57,28 +52,31 @@ export default {
   computed: {
     id() {
       return this.$route.params.id
+    },
+    url() {
+      return 'users/' + this.id
     }
   },
   mounted() {
     this.loadUser()
   },
   methods: {
-    cancel() {
+    returnToUsers() {
       this.$router.push('/users')
     },
 
     saveUser() {
       axiosInstance
-        .put('users/' + this.id, this.user)
-        .then(() => this.$router.push('/users'))
+        .put(this.url, this.user)
+        .then(() => this.returnToUsers())
         .catch(error => console.error(error))
     },
 
-    removeUser(id) {
+    removeUser() {
       axiosInstance
-        .delete('users/' + this.user.id)
-        .then(response => {
-          this.$router.push('/users')
+        .delete(this.url)
+        .then(() => {
+          this.returnToUsers()
         })
         .catch(error => console.error(error))
     },

@@ -12,13 +12,13 @@
       </li>
       <li
         v-for="page in countPages"
-        v-bind:key="page"
+        :key="page"
+        :class="{active: page === currentPage}"
         class="page-item"
-        v-bind:class="{active: page === currentPage}"
       >
         <a
           class="page-link"
-          v-on:click.prevent="changePage(page)"
+          @click.prevent="changePage(page)"
         >
           {{ page }}
         </a>

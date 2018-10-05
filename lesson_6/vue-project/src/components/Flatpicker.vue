@@ -3,12 +3,18 @@
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text">
-          <button class="btn btn-calendar" v-on:click="open">
-            <i class="far fa-calendar-alt"></i>
+          <button
+            class="btn btn-calendar"
+            @click="openFlatpicker">
+            <i class="far fa-calendar-alt"/>
           </button>
         </div>
       </div>
-      <input class="form-control flatpicker-input" type="text" ref="flatpicker" v-bind:value="value">
+      <input
+        ref="flatpicker"
+        :value="value"
+        class="form-control flatpicker-input"
+        type="text">
     </div>
   </div>
 </template>
@@ -29,9 +35,13 @@ export default {
     }
   },
   watch: {
-    value() {
-      this.updateFlatpicker()
-    }
+    value: 'updateFlatpickr'
+  },
+  mounted() {
+    this.init()
+  },
+  destroyed() {
+    this.flatpicker.destroy()
   },
   methods: {
     updateFlatpicker() {
@@ -49,12 +59,9 @@ export default {
       })
     },
 
-    open() {
+    openFlatpicker() {
       this.flatpicker.open()
     }
-  },
-  mounted() {
-    this.init()
   }
 }
 </script>

@@ -2,11 +2,16 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h2 class="text-center">Список пользователей (общее количество {{ countUsers }})</h2>
+        <h2 class="text-center">Список пользователей (общее количество {{ titleListUsers }})</h2>
         <div
-          v-if="!countUsers"
+          v-if="loading"
           class="alert alert-warning">
           Loading...
+        </div>
+        <div
+          v-else-if="countUsers === 0"
+          class="alert alert-info">
+          Пользователи не найдены
         </div>
         <user-list
           v-else
@@ -22,7 +27,9 @@
             <th>Телефон</th>
             <th>Зарегистрирован</th>
           </tr>
-          <template slot="row" slot-scope="item">
+          <template 
+            slot="row" 
+            slot-scope="item">
             <td>
               <router-link :to="'/edit/' + item.id">
                 # {{ item.id }}
@@ -51,11 +58,19 @@ export default {
     UserList: () => import('@/components/UserList.vue')
   },
   data: () => ({
-    users: []
+    users: [],
+    loading: true
   }),
   computed: {
     countUsers() {
       return this.users.length
+    },
+    titleListUsers() {
+      if (this.countUsers % 10 === 1 && this.countUsers % 100 !== 11)
+        return this.countUsers + ' пользователь'
+      else if (this.countUsers % 10 > 1 && this.countUsers % 10 < 5)
+        return this.countUsers + ' пользователя'
+      else return this.countUsers + ' пользователей'
     }
   },
   mounted() {
@@ -68,6 +83,7 @@ export default {
         .then(response => response.data)
         .then(users => {
           this.users = users
+          this.loading = false
         })
         .catch(error => console.error(error))
     }
