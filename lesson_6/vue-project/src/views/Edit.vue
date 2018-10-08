@@ -37,8 +37,6 @@
 </template>
 
 <script>
-import { axiosInstance } from '@/axios-instance.js'
-
 export default {
   name: 'EditUser',
   components: {
@@ -66,15 +64,15 @@ export default {
     },
 
     saveUser() {
-      axiosInstance
-        .put(this.url, this.user)
+      this.$store
+        .dispatch('saveUser', { url: this.url, user: this.user })
         .then(() => this.returnToUsers())
         .catch(error => console.error(error))
     },
 
     removeUser() {
-      axiosInstance
-        .delete(this.url)
+      this.$store
+        .dispatch('removeUser', this.url)
         .then(() => {
           this.returnToUsers()
         })
@@ -82,13 +80,11 @@ export default {
     },
 
     loadUser() {
-      axiosInstance
-        .get('users/' + this.id)
-        .then(response => response.data)
-        .then(data => {
-          this.user = data
-        })
-        .catch(error => console.error(error))
+      this.$store.state.users.some(user => {
+        if (user.id == this.id) {
+          this.user = user
+        }
+      })
     }
   }
 }

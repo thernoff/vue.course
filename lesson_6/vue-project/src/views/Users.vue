@@ -27,8 +27,8 @@
             <th>Телефон</th>
             <th>Зарегистрирован</th>
           </tr>
-          <template 
-            slot="row" 
+          <template
+            slot="row"
             slot-scope="item">
             <td>
               <router-link :to="'/edit/' + item.id">
@@ -50,18 +50,18 @@
 </template>
 
 <script>
-import { axiosInstance } from '@/axios-instance.js'
-
 export default {
   name: 'UsersList',
   components: {
     UserList: () => import('@/components/UserList.vue')
   },
-  data: () => ({
-    users: [],
-    loading: true
-  }),
   computed: {
+    loading() {
+      return this.$store.state.loading
+    },
+    users() {
+      return this.$store.state.users
+    },
     countUsers() {
       return this.users.length
     },
@@ -73,20 +73,9 @@ export default {
       else return this.countUsers + ' пользователей'
     }
   },
-  mounted() {
-    this.loadUsers()
-  },
-  methods: {
-    loadUsers() {
-      axiosInstance
-        .get('users')
-        .then(response => response.data)
-        .then(users => {
-          this.users = users
-          this.loading = false
-        })
-        .catch(error => console.error(error))
-    }
+
+  created() {
+    this.$store.dispatch('loadUsers')
   }
 }
 </script>

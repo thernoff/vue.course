@@ -6,7 +6,7 @@
         to="/"
         exact
         class="navbar-brand">
-        Пользователи
+        {{ navbarTitle }}
       </router-link>
       <button
         class="navbar-toggler"
@@ -58,6 +58,17 @@
     </main>
   </div>
 </template>
+
+<script>
+export default {
+  computed: {
+    navbarTitle() {
+      return this.$store.state.navbarTitle
+    }
+  }
+}
+</script>
+
 
 <style>
 #app {

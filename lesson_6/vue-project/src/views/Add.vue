@@ -25,8 +25,6 @@
 </template>
 
 <script>
-import { axiosInstance } from '@/axios-instance.js'
-
 export default {
   name: 'AddUser',
   components: {
@@ -48,7 +46,8 @@ export default {
         address: '',
         about: '',
         registered: ''
-      }
+      },
+      url: 'users'
     }
   },
   methods: {
@@ -57,13 +56,19 @@ export default {
     },
 
     addUser() {
-      axiosInstance
-        .post('/users', this.user)
-        .then(response => {
+      this.$store.dispatch('addUser', { url: this.url, user: this.user }).then(
+        () => {
+          console.log('2')
+          this.$router.push('/users')
+        }
+        //this.$router.push('/edit/' + id)
+      )
+      /* .then(response => {
+          console.log('response', response)
           const { id } = response.data
           this.$router.push('/edit/' + id)
         })
-        .catch(error => console.error(error))
+        .catch(error => console.error(error)) */
     }
   }
 }
