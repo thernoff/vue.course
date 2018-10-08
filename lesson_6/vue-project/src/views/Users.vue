@@ -9,7 +9,7 @@
           Loading...
         </div>
         <div
-          v-else-if="countUsers === 0"
+          v-else-if="usersNotFound"
           class="alert alert-info">
           Пользователи не найдены
         </div>
@@ -71,9 +71,11 @@ export default {
       else if (this.countUsers % 10 > 1 && this.countUsers % 10 < 5)
         return this.countUsers + ' пользователя'
       else return this.countUsers + ' пользователей'
+    },
+    usersNotFound() {
+      return this.countUsers === 0
     }
   },
-
   created() {
     this.$store.dispatch('loadUsers')
   }

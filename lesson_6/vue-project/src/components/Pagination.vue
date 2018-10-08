@@ -60,11 +60,6 @@ export default {
       return Math.ceil(this.totalUsers / this.countUsersOnePage)
     }
   },
-  watch: {
-    currentPage() {
-      console.log('currentPage', this.currentPage)
-    }
-  },
   methods: {
     changePage(page) {
       this.$emit('input', page)

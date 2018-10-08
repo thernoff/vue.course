@@ -17,8 +17,8 @@
             <th>Фамилия</th>
             <th>Телефон</th>
           </tr>
-          <template 
-            slot="row" 
+          <template
+            slot="row"
             slot-scope="item">
             <td>{{ item.firstName }}</td>
             <td>{{ item.lastName }}</td>
@@ -38,27 +38,16 @@ export default {
   components: {
     UserList: () => import('@/components/UserList.vue')
   },
-  data: () => ({
-    users: []
-  }),
   computed: {
+    users() {
+      return this.$store.state.users
+    },
     countUsers() {
       return this.users.length
     }
   },
-  mounted() {
-    this.loadUsers()
-  },
-  methods: {
-    loadUsers() {
-      axiosInstance
-        .get('users')
-        .then(response => response.data)
-        .then(users => {
-          this.users = users
-        })
-        .catch(error => console.error(error))
-    }
+  created() {
+    this.$store.dispatch('loadUsers')
   }
 }
 </script>

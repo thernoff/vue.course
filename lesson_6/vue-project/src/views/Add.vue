@@ -56,19 +56,14 @@ export default {
     },
 
     addUser() {
-      this.$store.dispatch('addUser', { url: this.url, user: this.user }).then(
-        () => {
-          console.log('2')
-          this.$router.push('/users')
-        }
-        //this.$router.push('/edit/' + id)
-      )
-      /* .then(response => {
-          console.log('response', response)
-          const { id } = response.data
-          this.$router.push('/edit/' + id)
+      this.$store
+        .dispatch('addUser', { url: this.url, user: this.user })
+        .then(response => {
+          //const { id } = response.data
+          //this.$router.push('/edit/' + id)
+          this.$router.push(this.url)
         })
-        .catch(error => console.error(error)) */
+        .catch(error => console.error(error))
     }
   }
 }
