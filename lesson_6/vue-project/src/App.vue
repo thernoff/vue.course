@@ -65,6 +65,9 @@ export default {
     navbarTitle() {
       return this.$store.state.navbarTitle
     }
+  },
+  created() {
+    this.$store.dispatch('loadUsers')
   }
 }
 </script>

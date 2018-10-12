@@ -35,7 +35,9 @@ export default {
     }
   },
   watch: {
-    value: 'updateFlatpickr'
+    value() {
+      this.updateFlatpicker()
+    }
   },
   mounted() {
     this.init()
